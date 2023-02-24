@@ -6,7 +6,7 @@ void main() {
       st += ' ';
     }
     for (int t = 0; t <= 6 - i; t++) {
-      st += '* ';
+      st += '0 ';
     }
     print(st);
   }
@@ -17,7 +17,7 @@ void main() {
       st += ' ';
     }
     for (int j = 0; j <= i; j++) {
-      st += ' *';
+      st += ' 0';
     }
     print(st);
   }
