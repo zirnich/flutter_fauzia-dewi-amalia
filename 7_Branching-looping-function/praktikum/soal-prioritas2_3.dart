@@ -6,15 +6,15 @@ void main() {
   var fac1 = 1;
   var fac2 = 1;
 
-  for (var i = nilaiA; i >= 1; i--) {
+  for (int i = nilaiA; i >= 1; i--) {
     fac *= i;
   }
   print('faktorial dari 10 adalah $fac');
-  for (var i = nilaiB; i >= 1; i--) {
+  for (int i = nilaiB; i >= 1; i--) {
     fac1 *= i;
   }
   print('faktorial dari 40 adalah $fac1');
-  for (var i = nilaiC; i >= 1; i--) {
+  for (int i = nilaiC; i >= 1; i--) {
     fac2 *= i;
   }
   print('faktorial dari 50 adalah $fac2');
