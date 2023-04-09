@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,24 +23,35 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Color.fromARGB(83, 15, 122, 180),
         title: Center(child: Text('Home Studio and Guitar')),
       ),
-      body: GridView.builder(
-            padding: const EdgeInsets.all(10),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 3,
-            ),
-            itemCount: gambarProvider.imgs.length,
-            itemBuilder: (BuildContext context, int index){
-              return GestureDetector(
-                onTap: (){
-                  Navigator.of(context)
-                      .pushNamed(
-                    '/newpage',arguments: gambarProvider.imgs[index],);
-                },
-                child: Image.asset(gambarProvider.imgs[index]),
-              );
-            },
+      body: Column(
+        children: [
+          Expanded(
+            child: GridView.builder(
+                  padding: const EdgeInsets.all(10),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 3,
+                  ),
+                  itemCount: gambarProvider.imgs.length,
+                  itemBuilder: (BuildContext context, int index){
+                    return GestureDetector(
+                      onTap: (){
+                        Navigator.of(context)
+                            .pushNamed(
+                          '/newpage',arguments: gambarProvider.imgs[index],);
+                      },
+                      child: Image.asset(gambarProvider.imgs[index]),
+                    );
+                  },
+                ),
           ),
+          Center(
+            child: gambarProvider.image == null
+            ? Text('data')
+            : Image.file(File(gambarProvider.image!.path)),
+          )
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
           onPressed: () => Navigator.of(context)
               .pushNamed('/tambah_gambar'),

@@ -19,6 +19,7 @@ class _TambahGambarState extends State<TambahGambar> {
     if (pickedFile != null) {
       GambarProvider gambarProvider = Provider.of<GambarProvider>(context, listen: false);
       gambarProvider.setImage(File(pickedFile.files.single.path!));
+
       Navigator.push(
         context,
         MaterialPageRoute(
